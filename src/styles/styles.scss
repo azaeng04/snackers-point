@@ -1,0 +1,30 @@
+
+@import "~bootstrap/scss/bootstrap";
+
+.grey-svg {
+    filter: invert(0%) sepia(0%) saturate(0%) hue-rotate(87deg) brightness(119%) contrast(119%);
+}
+
+#sidebar .nav-item {
+    padding: 0 40px 0 40px;
+}
+
+.nav-link {
+    color: #ffffff8c;
+}
+
+.nav-link:hover {
+    color: red;
+}
+
+.nav-link:active {
+    color: orange;
+}
+
+.nav-link .active {
+    color: orange;
+}
+
+.nav-link.active {
+      color: #ffffff8c;
+}
