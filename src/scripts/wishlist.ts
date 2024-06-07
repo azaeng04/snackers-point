@@ -7,6 +7,11 @@ export function displayWishlist() {
   const menuItemsSection = document.getElementById("items");
   if (menuItemsSection) menuItemsSection.innerHTML = "";
 
+  if(menuItems.length === 0 && menuItemsSection) {
+    menuItemsSection.innerHTML = "No items in wishlist";
+    return;
+  }
+
   for (const wishlistItem of wishlistItems) {
     const mainMenuDiv = document.createElement("div");
     mainMenuDiv.classList.add("col");
@@ -32,19 +37,24 @@ export function displayWishlist() {
     menuItemPrice.classList.add("card-text");
     menuItemPrice.textContent = `$${wishlistItem.price}`;
 
-    const addCartButton = document.createElement("button");
-    addCartButton.classList.add("btn", "btn-primary", "btn-sm");
-    addCartButton.textContent = "Add to Cart";
-    addCartButton.addEventListener("click", () => {
-      alert("Item added to cart");
-    });
+    // const addCartButton = document.createElement("button");
+    // addCartButton.classList.add("btn", "btn-primary", "btn-sm");
+    // addCartButton.textContent = "Add to Cart";
+    // addCartButton.addEventListener("click", () => {
+    //   alert("Item added to cart");
+    // });
 
     mainMenuDiv.appendChild(menuItemCardDiv);
     menuItemCardDiv.appendChild(menuItemImage);
     menuItemCardDiv.appendChild(menuItemBody);
     menuItemBody.appendChild(menuItemName);
     menuItemBody.appendChild(menuItemPrice);
-    menuItemBody.appendChild(addCartButton);
+    // menuItemBody.appendChild(addCartButton);
     menuItemsSection?.appendChild(mainMenuDiv);
   }
+}
+
+export function initializeWishlist() {
+  const wishlistLink = document.getElementById("wishlist");
+  if(wishlistLink) wishlistLink.addEventListener("click", displayWishlist)
 }

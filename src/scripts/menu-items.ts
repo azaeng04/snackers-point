@@ -1,6 +1,5 @@
 import { MenuItem } from "../models/MenuItem";
 import { favourite } from "./favourite";
-import { getMenuItems } from "./storage";
 
 export function initializeMenu(menuItems: MenuItem[]) {
   const menuItemsSection = document.getElementById("items");
@@ -41,12 +40,12 @@ export function initializeMenu(menuItems: MenuItem[]) {
     menuItemPrice.classList.add("card-text");
     menuItemPrice.textContent = `$${menuItem.price}`;
 
-    const addCartButton = document.createElement("button");
-    addCartButton.classList.add("btn", "btn-primary", "btn-sm");
-    addCartButton.textContent = "Add to Cart";
-    addCartButton.addEventListener("click", () => {
-      alert("Item added to cart");
-    });
+    // const addCartButton = document.createElement("button");
+    // addCartButton.classList.add("btn", "btn-primary", "btn-sm");
+    // addCartButton.textContent = "Add to Cart";
+    // addCartButton.addEventListener("click", () => {
+    //   alert("Item added to cart");
+    // });
 
     mainMenuDiv.appendChild(menuItemCardDiv);
     menuItemCardDiv.appendChild(menuItemAnchor);
@@ -55,7 +54,7 @@ export function initializeMenu(menuItems: MenuItem[]) {
     menuItemCardDiv.appendChild(menuItemBody);
     menuItemBody.appendChild(menuItemName);
     menuItemBody.appendChild(menuItemPrice);
-    menuItemBody.appendChild(addCartButton);
+    // menuItemBody.appendChild(addCartButton);
     menuItemsSection?.appendChild(mainMenuDiv);
   }
 }

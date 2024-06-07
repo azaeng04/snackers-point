@@ -1,7 +1,8 @@
-import { initializeMenu } from "./menu-items";
-import { getMenuItems, initializeStorage, setMenuItems } from "./storage";
+import { CategoryType } from "../models/MenuItem";
+import { filterCategory } from "./category-filter";
+import { getMenuItems, setMenuItems } from "./storage";
 
-export function favourite(id: number) {
+export function favourite(id: number, category: CategoryType = "all") {
   let menuItems = getMenuItems();
   let menuItem = menuItems.find((menuItem) => menuItem.id === id);
 
@@ -9,5 +10,5 @@ export function favourite(id: number) {
 
   setMenuItems(menuItems);
 
-  initializeMenu(getMenuItems());
+  filterCategory(category);
 }
